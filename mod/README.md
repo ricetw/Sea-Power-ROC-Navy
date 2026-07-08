@@ -13,7 +13,7 @@ Current unit scope:
 - Custom ROCN flag: `assets/rocn/common/flags/roc.png`
 - Custom Kee Lung-class hull numbers: `assets/rocn/ships/kee_lung/hullnumbers/`
 - Unit reference/profile image: `ui/profiles/roc_ddg_kee_lung.png`
-- SAM fit: original `usn_rim-66g` SM-2MR Block II as an in-game stand-in for ROCN SM-2
+- SAM fit: custom `rocn_rim-66k-2` SM-2MR Block IIIA, using vanilla `usn_rim-66g` visual assets
 - Anti-ship fit: original `usn_rgm-84d` Harpoon as an in-game stand-in
 - Helicopter: original `usn_sh-2f` placeholder, because vanilla Sea Power does not include ROCN S-70C/SH-60
 

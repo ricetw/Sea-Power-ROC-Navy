@@ -4,6 +4,7 @@
 # Temporary working output
 /scratch/
 /.agents/
+/source
 
 # Local game/user copies
 /Sea Power_Data/

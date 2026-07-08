@@ -3,7 +3,7 @@
 本文件盤點中華民國海軍基隆級飛彈驅逐艦公開資料中的武裝，並比對目前本機 Sea Power 原版資料夾內已有的彈藥、武器與航空器代號。
 
 比對時間：2026-07-08
-遊戲資料來源：`D:\RiceBall\steam\steamapps\common\Sea Power\Sea Power_Data\StreamingAssets\original`
+遊戲資料來源：`Sea Power\Sea Power_Data\StreamingAssets\original`
 模組目前單位：`mod/vessels/roc_ddg_kee_lung.ini`
 
 ## 判定標準
