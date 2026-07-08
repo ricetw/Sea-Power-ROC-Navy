@@ -45,6 +45,7 @@ ROC-Navy/
 
 - 舷號貼圖：`mod/assets/rocn/ships/kee_lung/hullnumbers/`
 - ROCN 旗幟：`mod/assets/rocn/common/flags/roc.png`
+- S-70C(M) 低視度 SH-2F placeholder 貼皮：`mod/assets/rocn/aircraft/s-70cm/`
 - 單位資料圖：`mod/ui/profiles/roc_ddg_kee_lung.png`
 - 艦艇設定：`mod/vessels/roc_ddg_kee_lung.ini`
 - 變體設定：`mod/vessels/roc_ddg_kee_lung_variants.ini`
@@ -147,8 +148,8 @@ HullnumberTexture=usn_dd-993
 
 - 船體與動畫：原版 `usn_ddg_kidd`
 - 防空飛彈：使用原版 `usn_rim-66g` 作為 SM-2MR 近似
-- 反艦飛彈：使用原版 `usn_rgm-84d` Harpoon 近似
-- 艦載直升機：暫用原版 `usn_sh-2f`，因原版遊戲沒有 ROCN S-70C/SH-60
+- 反艦飛彈：使用自訂 `rocn_rgm-84l` Harpoon Block II，沿用原版 `usn_rgm-84d` 外觀
+- 艦載直升機：使用自訂 `roc_s-70cm` S-70C(M)，沿用原版 `usn_sh-2f` 外觀、低視度灰色 ROCN placeholder 貼皮，並掛載官方 `usn_mk46_mod5_air` Mk 46 Mod 5
 - 電戰、雷達、聲納與火砲：以 Kidd class 設定為基礎逐步調整
 
 後續若遊戲或模組工具支援更多武器、雷達或直升機，可再拆成更精準的 ROCN 時期設定。
