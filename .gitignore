@@ -1,0 +1,18 @@
+# Generated packages
+/dist/*.zip
+/dist/legacy/*.zip
+
+# Temporary working output
+/scratch/
+/.agents/
+
+# Local game/user copies
+/Sea Power_Data/
+
+# Logs and editor/system files
+*.log
+*.tmp
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/

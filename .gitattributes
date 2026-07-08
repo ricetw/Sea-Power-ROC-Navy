@@ -1,0 +1,7 @@
+*.md text eol=lf
+*.ini text eol=crlf
+*.txt text eol=crlf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.zip binary
