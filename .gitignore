@@ -1,6 +1,5 @@
 # Generated packages
-/dist/*.zip
-/dist/legacy/*.zip
+/dist
 
 # Temporary working output
 /scratch/
