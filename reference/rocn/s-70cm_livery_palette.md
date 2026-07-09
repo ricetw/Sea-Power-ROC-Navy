@@ -14,7 +14,7 @@ This livery source is built for the workshop SH-60 mesh used as the current ROCN
 
 | Layer | Purpose |
 | --- | --- |
-| 02 Correct low-vis ROCN roundels | Editable corrected national roundel layer |
+| 02 Further aft low-vis ROCN roundels | Editable corrected national roundel layer, placed farther aft on both fuselage sides |
 | 01 Livery base no roundels | Flattened livery base without roundels |
 
 ## Texture Regions
@@ -31,4 +31,5 @@ This livery source is built for the workshop SH-60 mesh used as the current ROCN
 
 - No fuselage serial number is painted in this version.
 - The roundel follows the ROC emblem layout from the provided reference: a circular field, 12 separate broad rays, and a larger central circle.
+- The roundel placement is moved aft from the cabin-door area toward the tail-boom root on both fuselage sides.
 - The side door glass is painted on the diffuse texture because the workshop SH-60 side-door window is part of the main fuselage UV rather than the separate canopy material.
