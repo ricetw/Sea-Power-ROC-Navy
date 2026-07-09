@@ -22,7 +22,7 @@ Reference direction:
 - Chinese SH-60/S-70 variant notes describe the ROCN S-70C(M)-1/2 as based on SH-60F airframe features while integrating SH-60B functions.
 - This mod therefore uses a hybrid gameplay fit: SH-60B-style left-side passive sonobuoy launchers plus SH-60F-style belly dipping sonar and belly passive sonobuoy chute.
 - AN/AQS-18(V)3 is modeled as a dipping sonar sensor, not a weapon store. In game terms it is approximated from SH-60F/AQS-13F behavior.
-- Passive sonobuoys are modeled as `usn_ssq-53` only: 25 left-side tubes split into 20 + 5 stations, plus 6 belly-launched stores. Active DICASS sonobuoys are omitted for the ROCN S-70C(M) baseline.
+- Passive sonobuoys are modeled as `usn_ssq-53` only: one left-side 5x5 block with 25 tubes, plus 6 belly-launched stores. Active DICASS sonobuoys are omitted for the ROCN S-70C(M) baseline.
 - Mk 46 Mod 5 torpedo stations are moved outward; the left station is moved forward to sit closer to the visible stub wing.
 - Chaff is modeled as 25 rounds from the aft dorsal countermeasure dispenser.
 - The current prototype livery is a clean weathered gray-blue placeholder based on ROCN S-70C(M) public photos. External Modex/Emblem overlays remain disabled because the Workshop overlay meshes place ROCN markings in wrong USN-emblem locations; accurate ROCN markings need a proper SH-60 UV pass.
