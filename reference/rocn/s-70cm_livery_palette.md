@@ -1,0 +1,34 @@
+# ROCN S-70C(M) Livery Palette
+
+Last updated: 2026-07-10
+
+This livery source is built for the workshop SH-60 mesh used as the current ROCN S-70C(M) stand-in.
+
+## Runtime Textures
+
+- Diffuse: `mod/assets/rocn/aircraft/s-70cm/liveries/roc_s-70cm_sh60_gray.png`
+- Specular: `mod/assets/rocn/aircraft/s-70cm/liveries/roc_s-70cm_sh60_spec.png`
+- Layered source: `mod/assets/rocn/aircraft/s-70cm/sources/roc_s-70cm_sh60_livery.psd`
+
+## PSD Layers
+
+| Layer | Purpose |
+| --- | --- |
+| 02 Correct low-vis ROCN roundels | Editable corrected national roundel layer |
+| 01 Livery base no roundels | Flattened livery base without roundels |
+
+## Texture Regions
+
+| Region | Purpose | Main colors |
+| --- | --- | --- |
+| Base gray fuselage | Overall ROCN light-gray paint | `#879296`, `#7F8A8E` |
+| Panel shade lines | Subtle panel seams and weathering | `#46525A` at low opacity |
+| Wheels and landing gear | Rubber tires and metal struts | Rubber `#101316`; metal `#7A858A` |
+| Side door glass | Smoked cabin-door windows | Deep glass `#121E26`; highlight `#879EAA` |
+| Low-vis ROCN roundels | Low-visibility ROC emblem with circular field, 12 separate broad triangular rays, larger center circle, and visible field gaps | Disc `#707E84`; outline `#505C64`; sun `#D2D8DA` |
+
+## Notes
+
+- No fuselage serial number is painted in this version.
+- The roundel follows the ROC emblem layout from the provided reference: a circular field, 12 separate broad rays, and a larger central circle.
+- The side door glass is painted on the diffuse texture because the workshop SH-60 side-door window is part of the main fuselage UV rather than the separate canopy material.
