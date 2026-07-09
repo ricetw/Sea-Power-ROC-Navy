@@ -19,7 +19,7 @@ mod/aircraft/roc_s-70cm.ini
 Notes:
 
 - `usn_sh-60b.ini` is used as the visual/animation baseline because it is closer to the ROCN S-70C(M)-1/2 era and ASW fit than `usn_mh-60r.ini`.
-- MH-60R-only systems such as modern FLIR/laser/Hellfire and dipping sonar are not copied into the ROCN S-70C(M) baseline.
-- ROCN visible loadouts remain conservative: Mk 46 Mod 5 torpedoes only for the current visual pass; sonobuoy visuals are deferred.
-- The current SH-60 prototype livery is a darker UV-derived gray texture based on the Workshop SH-60 texture detail. External Modex/Emblem overlays are disabled because the Workshop overlay meshes place ROCN markings in the wrong USN-emblem locations; accurate ROCN markings need a proper SH-60 UV pass.
-- Visible sonobuoy stores are now moved to approximate belly chute stations instead of the SH-60B side dispenser layout.
+- MH-60R-only systems such as modern FLIR/laser/Hellfire are not copied into the ROCN S-70C(M) baseline; the active ASW fit is modeled separately as an AN/AQS-18(V)3-style dipping sonar.
+- ROCN visible ASW loadouts remain conservative: Mk 46 Mod 5 torpedoes plus 25 passive AN/SSQ-53 DIFAR sonobuoys from the left dispenser. Active DICASS sonobuoys are not used for the S-70C(M) baseline.
+- The current SH-60 prototype livery is a clean darker gray placeholder generated without USN markings. External Modex/Emblem overlays are disabled because the Workshop overlay meshes place ROCN markings in the wrong USN-emblem locations; accurate ROCN markings need a proper SH-60 UV pass.
+- Passive sonobuoys now use the left-side dispenser layout; the active system is represented by a belly-mounted dipping-sonar sensor and AQS-13 visual proxy. Chaff is modeled as 25 rounds from the aft dorsal dispenser using the SH-60 countermeasure behavior.
