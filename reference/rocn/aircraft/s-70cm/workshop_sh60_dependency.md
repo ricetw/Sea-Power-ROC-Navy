@@ -20,5 +20,6 @@ Notes:
 
 - `usn_sh-60b.ini` is used as the visual/animation baseline because it is closer to the ROCN S-70C(M)-1/2 era and ASW fit than `usn_mh-60r.ini`.
 - MH-60R-only systems such as modern FLIR/laser/Hellfire and dipping sonar are not copied into the ROCN S-70C(M) baseline.
-- ROCN loadouts remain conservative: Mk 46 Mod 5 torpedoes and vanilla sonobuoys.
-- The existing ROCN livery is a placeholder and may not align with the Workshop SH-60 UV layout.
+- ROCN visible loadouts remain conservative: Mk 46 Mod 5 torpedoes only for the current visual pass; sonobuoy visuals are deferred.
+- The current SH-60 prototype livery is a neutral gray texture to avoid SH-2F/old-placeholder UV distortion. Detailed ROCN markings still need a proper SH-60 UV pass.
+- Visible sonobuoy stores are deferred because the current vanilla sonobuoy models render outside the SH-60 dispenser area. Default ASW loadouts currently show Mk 46 torpedoes only.
