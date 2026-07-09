@@ -12,7 +12,7 @@ Current unit scope:
 - Base model and animations: original USN Kidd class
 - Custom ROCN flag: `assets/rocn/common/flags/roc.png`
 - Custom Kee Lung-class hull numbers: `assets/rocn/ships/kee_lung/hullnumbers/`
-- S-70C(M) SH-60 visual prototype livery, serial, and emblem assets: `assets/rocn/aircraft/s-70cm/` (clean darker gray placeholder livery without USN markings; external markings are disabled until SH-60 UV placement is mapped)
+- S-70C(M) SH-60 visual prototype livery, serial, and emblem assets: `assets/rocn/aircraft/s-70cm/` (weathered gray-blue placeholder livery without USN markings; external markings are disabled until SH-60 UV placement is mapped)
 - Unit reference/profile image: `ui/profiles/roc_ddg_kee_lung.png`
 - SAM fit: custom `rocn_rim-66k-2` SM-2MR Block IIIA, using vanilla `usn_rim-66g` visual assets
 - Anti-ship fit: custom `rocn_rgm-84l` Harpoon Block II, using vanilla `usn_rgm-84d` visual assets
