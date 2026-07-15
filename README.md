@@ -2,21 +2,23 @@
 
 `Sea Power ROC Navy` 是一個以《Sea Power》為目標的中華民國海軍艦艇模組工作區。專案目標是逐步建立可在遊戲中使用的 ROCN 艦艇包，包含艦艇資料、變體、舷號、旗幟、單位圖、中文/英文名稱，以及必要的遊戲設定檔。
 
-目前已完成的第一個單位是中華民國海軍基隆級飛彈驅逐艦，使用遊戲原版美國海軍 Kidd class 作為模型與動畫基礎，並加入 ROCN 旗幟、四艦舷號、中文/英文單位名稱與單位資料圖。
+目前已建立基隆級飛彈驅逐艦與國造成功級飛彈巡防艦。基隆級使用遊戲原版美國海軍 Kidd class，成功級使用原版長船體 Oliver Hazard Perry class 作為模型與動畫基礎，並加入 ROCN 旗幟、各艦舷號、中文/英文單位名稱、單位資料圖與自訂武器資料。
 
 GitHub 倉庫：<https://github.com/ricetw/Sea-Power-ROC-Navy.git>
 
 ## 目前狀態
 
-本專案仍在製作中。現階段重點是建立穩定的資料夾規範與第一批可用單位，後續再逐步擴充成功級、康定級、濟陽級、錦江級、沱江級等中華民國海軍艦艇。
+本專案仍在製作中。現階段重點是完成基隆級、成功級與 S-70C(M) 的可玩原型，後續再逐步擴充銘傳級、康定級、濟陽級、錦江級、沱江級等中華民國海軍艦艇。
 
 目前內容：
 
-- 單位 ID：`roc_ddg_kee_lung`
-- 艦級：基隆級飛彈驅逐艦
-- 變體：`DDG-1801 基隆`、`DDG-1802 蘇澳`、`DDG-1803 左營`、`DDG-1805 馬公`
-- 基礎模型：遊戲原版 `usn_ddg_kidd`
-- 自製素材：ROCN 旗幟、基隆級四艦舷號、單位資料圖
+- 單位 ID：`roc_ddg_kee_lung`、`roc_ffg_cheng_kung`、`roc_ffg_tien_tan`
+- 艦級：基隆級飛彈驅逐艦、國造成功級飛彈巡防艦
+- 基隆級變體：`DDG-1801 基隆`、`DDG-1802 蘇澳`、`DDG-1803 左營`、`DDG-1805 馬公`
+- 成功級變體：`PFG-1101 成功`、`1103 鄭和`、`1105 繼光`、`1106 岳飛`、`1107 子儀`、`1108 班超`、`1109 張騫`
+- 田單艦：`PFG-1110 田單` 使用獨立單位定義，以表達其未安裝兩門 40 公厘快砲的差異
+- 基礎模型：遊戲原版 `usn_ddg_kidd` 與 `usn_ffg_oliver_hazard_perry_longhull`
+- 自製素材：ROCN 旗幟、各艦舷號、單位資料圖、RIM-66K-2、RGM-84L、HF-2 與 HF-3 資料
 - 語言資料：繁體中文與英文
 - 目標遊戲版本：Sea Power `v0.8.0` 左右，之後需依遊戲更新持續檢查相容性
 
@@ -51,6 +53,16 @@ ROC-Navy/
 - 變體設定：`mod/vessels/roc_ddg_kee_lung_variants.ini`
 - 原版 Kidd 參考：`reference/original/usn/usn_ddg_kidd/`
 
+目前成功級相關素材位置：
+
+- 艦艇設定：`mod/vessels/roc_ffg_cheng_kung.ini`
+- 變體設定：`mod/vessels/roc_ffg_cheng_kung_variants.ini`
+- 田單艦設定：`mod/vessels/roc_ffg_tien_tan.ini`、`mod/vessels/roc_ffg_tien_tan_variants.ini`
+- 舷號貼圖：`mod/assets/rocn/ships/cheng_kung/hullnumbers/`
+- 單位資料圖：`mod/ui/profiles/roc_ffg_cheng_kung.png`
+- 原版長船體派里級參考：`reference/original_perry/`
+- 考證與近似項目：`reference/rocn/cheng_kung/implementation_notes.md`
+
 ## 安裝與本機測試
 
 遊戲實際只需要 `mod/` 內的內容，不需要整個工作區。
@@ -61,7 +73,7 @@ ROC-Navy/
 2. 將 `mod/` 內的檔案複製到該本機 mod 的根目錄。
 3. 若直接測試目前工作副本，也可同步到：
    `Sea Power_Data/StreamingAssets/user/`
-4. 進入遊戲後，在單位資料庫中尋找中華民國海軍與基隆級單位。
+4. 進入遊戲後，在單位資料庫中尋找中華民國海軍的基隆級與成功級單位。
 5. 檢查旗幟、舷號、單位資料圖、武器清單與艦名是否正確顯示。
 
 請注意：`mod/` 這個資料夾本身是工作區中的發佈根目錄。打包或上架時通常要使用 `mod/` 的內容，而不是把外層 `ROC-Navy/` 整包丟進遊戲。
@@ -188,7 +200,7 @@ git push
 
 候選艦級：
 
-- 成功級巡防艦
+- 銘傳級巡防艦（美國移交長船體派里級）
 - 康定級巡防艦
 - 濟陽級巡防艦
 - 錦江級巡邏艦
@@ -201,5 +213,10 @@ git push
 
 來源連結：
 <https://navy.mnd.gov.tw/aboutus/other_info.aspx?aid=30035&id=1>
+
+成功級單位資料圖與艦艇尺寸來源：中華民國海軍官方成功級艦艇介紹頁面，經裁切後作為遊戲內單位資料圖使用。
+
+來源連結：
+<https://navy.mnd.gov.tw/AboutUs/Other_Info.aspx?AID=30033&ID=1>
 
 所有 Sea Power 原版資源仍屬原權利人所有。本專案只保存模組設定、自製素材與參考筆記，不重新散布原版遊戲資源。
