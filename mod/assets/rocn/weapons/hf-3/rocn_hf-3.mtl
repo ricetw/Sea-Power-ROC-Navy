@@ -1,0 +1,93 @@
+# Materials for ROCN Hsiung Feng III high-poly model.
+newmtl hf3_body_dark
+Kd 0.055 0.070 0.064
+Ka 0.010 0.014 0.013
+Ks 0.180 0.190 0.180
+Ns 78
+
+newmtl hf3_duct_graphite
+Kd 0.135 0.150 0.145
+Ka 0.028 0.032 0.031
+Ks 0.160 0.170 0.165
+Ns 62
+
+newmtl hf3_light_gray
+Kd 0.660 0.690 0.675
+Ka 0.145 0.150 0.148
+Ks 0.190 0.195 0.190
+Ns 55
+
+newmtl hf3_panel_gray
+Kd 0.365 0.395 0.390
+Ka 0.080 0.085 0.084
+Ks 0.110 0.115 0.112
+Ns 34
+
+newmtl hf3_panel_line
+Kd 0.018 0.020 0.020
+Ka 0.003 0.004 0.004
+Ks 0.040 0.040 0.040
+Ns 18
+
+newmtl hf3_panel_black
+Kd 0.006 0.006 0.006
+Ka 0.000 0.000 0.000
+Ks 0.030 0.030 0.030
+Ns 16
+
+newmtl hf3_nose_white
+Kd 0.900 0.875 0.805
+Ka 0.200 0.190 0.175
+Ks 0.250 0.235 0.205
+Ns 78
+
+newmtl hf3_intake_black
+Kd 0.004 0.005 0.006
+Ka 0.000 0.000 0.000
+Ks 0.020 0.020 0.020
+Ns 14
+
+
+newmtl hf3_booster_gold
+Kd 0.610 0.485 0.255
+Ka 0.130 0.103 0.052
+Ks 0.205 0.165 0.092
+Ns 52
+
+newmtl hf3_pylon_offwhite
+Kd 0.735 0.720 0.625
+Ka 0.160 0.155 0.135
+Ks 0.120 0.112 0.095
+Ns 28
+
+newmtl hf3_fin_red
+Kd 0.760 0.055 0.030
+Ka 0.175 0.012 0.007
+Ks 0.110 0.030 0.020
+Ns 30
+
+newmtl hf3_nozzle_black
+Kd 0.000 0.000 0.000
+Ka 0.000 0.000 0.000
+Ks 0.016 0.016 0.016
+Ns 8
+
+newmtl hf3_roundel_blue
+Kd 0.020 0.130 0.520
+Ka 0.004 0.024 0.115
+Ks 0.080 0.085 0.120
+Ns 30
+
+newmtl hf3_decal_side_text
+Kd 1.000 1.000 1.000
+Ka 0.000 0.000 0.000
+Ks 0.000 0.000 0.000
+Ns 1
+map_Kd textures/hf3_side_marking.png
+
+newmtl hf3_decal_s001
+Kd 1.000 1.000 1.000
+Ka 0.000 0.000 0.000
+Ks 0.000 0.000 0.000
+Ns 1
+map_Kd textures/hf3_s001.png

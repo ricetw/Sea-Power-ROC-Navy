@@ -16,6 +16,7 @@ Current unit scope:
 - Unit reference/profile image: `ui/profiles/roc_ddg_kee_lung.png`
 - SAM fit: custom `rocn_rim-66k-2` SM-2MR Block IIIA, using vanilla `usn_rim-66g` visual assets
 - Anti-ship fit: custom `rocn_rgm-84l` Harpoon Block II, using vanilla `usn_rgm-84d` visual assets
+- Standalone weapon data: custom `rocn_hf-3` Hsiung Feng III supersonic ASM, using bundled `assets/rocn/weapons/hf-3/` high-poly visual assets; not mounted on Kee Lung-class by default
 - Helicopter: custom `roc_s-70cm` S-70C(M) local prototype, using Workshop item `3737267013` SH-60B visual resources when that mod is enabled locally; third-party model/texture assets are not bundled for redistribution
 
 Mod folder conventions:

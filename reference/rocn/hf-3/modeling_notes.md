@@ -31,3 +31,10 @@ The model is a high-poly game-art approximation based on public imagery and dime
 - https://zh.wikipedia.org/zh-tw/%E9%9B%84%E9%A2%A8%E4%B8%89%E5%9E%8B%E5%8F%8D%E8%89%A6%E9%A3%9B%E5%BD%88
 - https://commons.wikimedia.org/wiki/Category:Hsiung_Feng_III
 - https://commons.wikimedia.org/wiki/File:%E9%9B%84%E9%A2%A8%E4%B8%89%E5%9E%8B%E5%8F%8D%E8%89%A6%E9%A3%9B%E5%BD%88.jpg
+## Gameplay integration
+
+- Game ammunition ID: `rocn_hf-3`.
+- The HF-3 is added as an independent Sea Power ammunition entry and does not overwrite `rocn_rgm-84l` or vanilla Harpoon data.
+- Standard-model public data is used for core gameplay values: 150 km range (`81 nmi`), Mach 2.5-class speed (`1650 kt` in-game), and approximately 1.4 t mass.
+- Warhead power, seeker range, ECCM, and defensive modifiers are game-scale approximations derived from Sea Power's Harpoon and SS-N-22/HY-3 balance ranges because detailed official seeker/warhead parameters are not public.
+- Kee Lung-class vessels keep their RGM-84L Harpoon loadout. HF-3 should be mounted later on ROCN units that actually carry HF-3, such as future Tuo Chiang/Cheng Kung/Kuang Hua VI/shore launcher entries, after those launchers are modeled.
