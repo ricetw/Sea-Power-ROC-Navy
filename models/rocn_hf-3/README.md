@@ -15,20 +15,20 @@ Scale and orientation:
 - Nose direction: `+X`
 - Overall length: `6.100 m`
 - Main body diameter basis: `0.46 m`
-- Vertex count: `127376`
-- Face count: `122156`
+- Vertex count: `127360`
+- Face count: `122148`
 - Bounds X: `-3.050 .. 3.050`
 - Bounds Y: `-0.650 .. 0.650`
-- Bounds Z: `-0.672 .. 0.650`
+- Bounds Z: `-0.650 .. 0.650`
 
 Modeled exterior features:
 
 - Dark graphite main body with a white ogive radar seeker nose.
-- Four conformal external ramjet/intake duct fairings around the main body.
+- Four conformal ramjet/intake duct fairings at the top, starboard, bottom, and port positions.
 - Long black recessed intake slots and forward black intake mouths.
-- Two lower side strap-on booster rockets with gold casings, white nose caps, black aft nozzles, pylons, and small aft fins.
+- Two diagonal strap-on booster rockets seated between the ramjet ducts, with gold casings, white nose caps, black aft nozzles, pylons, and small aft fins.
 - Four red clipped-delta tail control fins.
-- Low-profile mid-body strakes, panel rings, seeker windows, inspection panels, and simplified ROCN markings.
+- Low-profile mid-body strakes, panel rings, a clean white seeker nose, inspection panels, and simplified ROCN markings.
 
 Reference basis:
 

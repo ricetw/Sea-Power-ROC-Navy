@@ -15,9 +15,9 @@ This note documents the public references and exterior assumptions used for the 
 - Coordinate system: nose points toward +X, Y is starboard, Z is up.
 - Scale: total model bounds are -3.05 m to +3.05 m on X, matching a 6.1 m overall length.
 - Main missile body: 0.46 m diameter basis, dark graphite finish, white ogive nose.
-- Ramjet/intake layout: four conformal external duct fairings around the body, not four separate round tubes.
+- Ramjet/intake layout: four conformal external duct fairings at the top, starboard, bottom, and port positions, not four separate round tubes.
 - Intake details: long black recessed slots and forward black scoop mouths are modeled as separate geometry and material groups.
-- Boosters: two lower-side strap-on boosters use gold-brown cylinders, white pointed nose caps, black rear nozzles, mounting saddles, and aft fins.
+- Boosters: two diagonal strap-on boosters sit in the gaps between the ramjet ducts, at the upper-starboard and lower-port diagonal positions; each uses a gold-brown cylinder, white pointed nose cap, black rear nozzle, mounting saddles, and aft fins.
 - Control surfaces: four red clipped-delta tail fins are placed between the duct/booster geometry.
 - Markings: side text and S001 are texture planes referenced by the MTL; blue/white roundels are modeled as small geometry discs.
 

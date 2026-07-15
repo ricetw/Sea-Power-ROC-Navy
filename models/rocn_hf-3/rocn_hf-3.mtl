@@ -47,11 +47,6 @@ Ka 0.000 0.000 0.000
 Ks 0.020 0.020 0.020
 Ns 14
 
-newmtl hf3_sensor_black
-Kd 0.008 0.012 0.015
-Ka 0.000 0.000 0.000
-Ks 0.260 0.280 0.300
-Ns 95
 
 newmtl hf3_booster_gold
 Kd 0.610 0.485 0.255

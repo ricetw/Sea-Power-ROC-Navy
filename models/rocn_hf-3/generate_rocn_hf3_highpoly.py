@@ -273,7 +273,7 @@ def add_fin_polar(mesh: Mesh, group: str, mat: str, theta: float, x0: float, x1:
 
 
 def add_booster(mesh: Mesh, side: str, theta: float) -> None:
-    center = polar_yz(0.505, 0.0, theta)
+    center = polar_yz(0.455, 0.0, theta)
     gold = [
         (-2.86, 0.083), (-2.68, 0.102), (-2.10, 0.106), (-1.40, 0.106),
         (-0.70, 0.105), (-0.05, 0.102), (0.42, 0.098), (0.55, 0.088),
@@ -286,12 +286,12 @@ def add_booster(mesh: Mesh, side: str, theta: float) -> None:
     for n, x in enumerate([-2.24, -1.47, -0.70, 0.16]):
         add_lathe(mesh, f"{side}_booster_black_band_{n}", "hf3_panel_black", [(x - 0.015, 0.108), (x + 0.015, 0.108)], 160, center, False, False, True)
 
-    add_local_box_polar(mesh, f"{side}_forward_booster_saddle", "hf3_pylon_offwhite", 0.16, 0.46, 0.255, 0.440, -0.035, 0.035, theta)
-    add_local_box_polar(mesh, f"{side}_aft_booster_saddle", "hf3_pylon_offwhite", -2.38, -2.06, 0.255, 0.440, -0.038, 0.038, theta)
+    add_local_box_polar(mesh, f"{side}_forward_booster_saddle", "hf3_pylon_offwhite", 0.16, 0.46, 0.255, 0.365, -0.035, 0.035, theta)
+    add_local_box_polar(mesh, f"{side}_aft_booster_saddle", "hf3_pylon_offwhite", -2.38, -2.06, 0.255, 0.365, -0.038, 0.038, theta)
 
-    add_fin_polar(mesh, f"{side}_booster_outer_aft_fin", "hf3_light_gray", theta, -2.93, -2.50, -2.84, -2.62, 0.590, 0.745, 0.018)
+    add_fin_polar(mesh, f"{side}_booster_outer_aft_fin", "hf3_light_gray", theta, -2.93, -2.50, -2.84, -2.62, 0.545, 0.675, 0.018)
     add_fin_polar(mesh, f"{side}_booster_lower_aft_fin", "hf3_light_gray", theta - 0.23 if side == "starboard" else theta + 0.23,
-                  -2.92, -2.52, -2.84, -2.63, 0.570, 0.700, 0.018)
+                  -2.92, -2.52, -2.84, -2.63, 0.525, 0.640, 0.018)
 
 
 def build_model() -> Mesh:
@@ -313,15 +313,16 @@ def build_model() -> Mesh:
         add_lathe(mesh, f"subtle_body_panel_ring_{n:02d}", "hf3_panel_line", [(x - 0.006, 0.235), (x + 0.006, 0.235)], body_seg, (0, 0), False, False, True)
 
     for name, theta in [
-        ("upper_starboard_ramjet", PI / 4),
-        ("upper_port_ramjet", 3 * PI / 4),
-        ("lower_port_ramjet", 5 * PI / 4),
-        ("lower_starboard_ramjet", 7 * PI / 4),
+        ("top_ramjet", PI / 2),
+        ("starboard_ramjet", 0.0),
+        ("bottom_ramjet", 3 * PI / 2),
+        ("port_ramjet", PI),
     ]:
         add_ramjet_duct(mesh, name, theta)
 
-    add_booster(mesh, "starboard_lower", 5 * PI / 3)
-    add_booster(mesh, "port_lower", 4 * PI / 3)
+    # The two strap-on boosters sit in diagonal gaps between the four ramjet ducts.
+    add_booster(mesh, "upper_starboard_diagonal", PI / 4)
+    add_booster(mesh, "lower_port_diagonal", 5 * PI / 4)
 
     for label, theta in [("top", PI / 2), ("starboard", 0.0), ("bottom", 3 * PI / 2), ("port", PI)]:
         add_fin_polar(mesh, f"{label}_red_tail_clipped_delta_control_fin", "hf3_fin_red", theta,
@@ -333,8 +334,6 @@ def build_model() -> Mesh:
                       -0.62, 0.06, -0.48, -0.02, 0.242, 0.360, 0.015)
 
     for side, theta in [("starboard", 0.0), ("port", PI)]:
-        add_surface_plate(mesh, f"{side}_black_seeker_window_forward", "hf3_sensor_black", 2.36, 2.55, 0.236, -0.080, -0.036, theta)
-        add_surface_plate(mesh, f"{side}_black_seeker_window_aft", "hf3_sensor_black", 2.12, 2.31, 0.236, 0.045, 0.090, theta)
         add_surface_plate(mesh, f"{side}_side_marking_plate", "hf3_decal_side_text", 0.02, 1.35, 0.242, -0.105, 0.085, theta, True)
         add_surface_plate(mesh, f"{side}_s001_marking_plate", "hf3_decal_s001", 1.36, 1.82, 0.243, -0.018, 0.065, theta, True)
         # Small blue roundel is geometry so it stays visible in viewers that ignore alpha textures.
@@ -398,11 +397,6 @@ Ka 0.000 0.000 0.000
 Ks 0.020 0.020 0.020
 Ns 14
 
-newmtl hf3_sensor_black
-Kd 0.008 0.012 0.015
-Ka 0.000 0.000 0.000
-Ks 0.260 0.280 0.300
-Ns 95
 
 newmtl hf3_booster_gold
 Kd 0.610 0.485 0.255
@@ -479,11 +473,11 @@ Scale and orientation:
 Modeled exterior features:
 
 - Dark graphite main body with a white ogive radar seeker nose.
-- Four conformal external ramjet/intake duct fairings around the main body.
+- Four conformal ramjet/intake duct fairings at the top, starboard, bottom, and port positions.
 - Long black recessed intake slots and forward black intake mouths.
-- Two lower side strap-on booster rockets with gold casings, white nose caps, black aft nozzles, pylons, and small aft fins.
+- Two diagonal strap-on booster rockets seated between the ramjet ducts, with gold casings, white nose caps, black aft nozzles, pylons, and small aft fins.
 - Four red clipped-delta tail control fins.
-- Low-profile mid-body strakes, panel rings, seeker windows, inspection panels, and simplified ROCN markings.
+- Low-profile mid-body strakes, panel rings, a clean white seeker nose, inspection panels, and simplified ROCN markings.
 
 Reference basis:
 
