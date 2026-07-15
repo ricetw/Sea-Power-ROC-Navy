@@ -1,4 +1,4 @@
-# ROCN Hsiung Feng III High-Poly OBJ Prototype
+# ROCN Hsiung Feng III High-Poly OBJ Model
 
 Files:
 
@@ -6,33 +6,27 @@ Files:
 - rocn_hf-3.mtl
 - generate_rocn_hf3_highpoly.ps1
 
-This is a procedural, high-poly approximate Hsiung Feng III anti-ship missile model for mod prototyping. It is not a CAD-accurate reconstruction.
-
 Scale and orientation:
 
 - Units: meters
 - Nose direction: +X
-- Approximate length: 6.1 m
-- Approximate missile body diameter: 0.46 m
+- Overall length: 6.1 m
+- Main body diameter: 0.46 m
+- OBJ vertices: 116932
+- OBJ faces: 111266
+- X bounds: -3.050 .. 3.050
+- Y bounds: -0.550 .. 0.550
+- Z bounds: -0.438 .. 0.340
 
-Modeled visual features:
+Modeled exterior features:
 
-- Smooth high-segment cylindrical missile body
-- Smooth ogive-style white nose cone
-- Body panel bands and thin panel rings
-- Dark side ramjet/intake channel strips with raised lips
-- Lower body fairing and dark slot
-- Brown aft booster and two side booster tubes
-- Recessed black nozzle details
-- Red tail fins with finite thickness
-- Mid-body stabilizers and forward canards
-- Raised side marking plates and simple hatch details
+- 1:1 visual scale based on public 6.1 m length and 0.46 m main body diameter.
+- White radar seeker nose and dark gray main body.
+- Four separate external ramjet/intake structures around the main body.
+- Two lower side booster rockets with gold-brown casings, pointed front caps, black aft nozzles, and mounting pylons.
+- Red aft control fins, mid-body stabilizers, and forward canards with finite thickness.
+- Panel rings, hatches, seeker windows, ROCN roundel discs, and simplified raised block lettering.
 
-Reference basis:
+Note:
 
-- Public specification data for HF-3 length/diameter/mass/speed from Wikipedia/Wikimedia-derived public pages.
-- User-provided launch and static-display photos for broad visual layout and color blocking.
-
-Next integration step:
-
-Sea Power usually needs the OBJ plus material paths referenced from an ammunition ini. This file is currently stored as a source model under models; it is not yet wired into mod/ammunition.
+This is a high-poly game-art exterior reconstruction from public dimensions and photos. It is not CAD-accurate or suitable for manufacturing. To use it in Sea Power, move the OBJ/MTL into a mod asset path and reference the model from an ammunition ini.
