@@ -11,6 +11,7 @@ from pathlib import Path
 
 OUT_DIR = Path(__file__).resolve().parent
 OBJ_PATH = OUT_DIR / "rocn_hf-3.obj"
+GAME_OBJ_PATH = OUT_DIR / "rocn_hf-3_game.obj"
 MTL_PATH = OUT_DIR / "rocn_hf-3.mtl"
 README_PATH = OUT_DIR / "README.md"
 
@@ -70,6 +71,30 @@ class Mesh:
                 else:
                     terms = [str(vi) for vi in face["v"]]
                 fp.write("f " + " ".join(terms) + "\n")
+
+    def write_game_obj(self, path: Path) -> None:
+        """Write Sea Power's +Z-forward, 1:100-scale OBJ grouped by material."""
+        material_order = list(dict.fromkeys(face["mat"] for face in self.faces))
+        with path.open("w", encoding="utf-8", newline="\n") as fp:
+            fp.write("# ROCN Hsiung Feng III Sea Power game OBJ\n")
+            fp.write("# Scale: 1 model unit = 100 m. Axes: +X starboard, +Y up, +Z nose.\n")
+            for forward, starboard, up in self.vertices:
+                fp.write(f"v {starboard * 0.01:.8f} {up * 0.01:.8f} {forward * 0.01:.8f}\n")
+            for u, v in self.texcoords:
+                fp.write(f"vt {u:.6f} {v:.6f}\n")
+
+            for material in material_order:
+                fp.write(f"\no {material}\ng {material}\n")
+                current_smooth = None
+                for face in (item for item in self.faces if item["mat"] == material):
+                    if face["smooth"] != current_smooth:
+                        fp.write("s 1\n" if face["smooth"] else "s off\n")
+                        current_smooth = face["smooth"]
+                    if face["vt"]:
+                        terms = [f"{vi}/{ti}" for vi, ti in zip(face["v"], face["vt"])]
+                    else:
+                        terms = [str(vi) for vi in face["v"]]
+                    fp.write("f " + " ".join(terms) + "\n")
 
 
 def polar_yz(radial: float, tangent: float, theta: float) -> tuple[float, float]:
@@ -495,10 +520,12 @@ This is a high-poly game-art exterior approximation for Sea Power modding, not a
 def main() -> None:
     mesh = build_model()
     mesh.write_obj(OBJ_PATH)
+    mesh.write_game_obj(GAME_OBJ_PATH)
     write_mtl()
     write_readme(mesh)
     minx, maxx, miny, maxy, minz, maxz = mesh.bounds
     print(f"Generated {OBJ_PATH}")
+    print(f"Generated {GAME_OBJ_PATH}")
     print(f"vertices={len(mesh.vertices)} faces={len(mesh.faces)} length={maxx - minx:.3f}m")
     print(f"bounds x={minx:.3f}..{maxx:.3f} y={miny:.3f}..{maxy:.3f} z={minz:.3f}..{maxz:.3f}")
 
