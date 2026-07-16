@@ -16,6 +16,25 @@ MTL_PATH = OUT_DIR / "rocn_hf-3.mtl"
 README_PATH = OUT_DIR / "README.md"
 
 PI = math.pi
+GAME_ATLAS_GRID = 4
+GAME_ATLAS_PADDING = 0.025
+GAME_MATERIAL_ORDER = [
+    "hf3_body_dark",
+    "hf3_nose_white",
+    "hf3_nozzle_black",
+    "hf3_light_gray",
+    "hf3_panel_gray",
+    "hf3_panel_line",
+    "hf3_duct_graphite",
+    "hf3_intake_black",
+    "hf3_booster_gold",
+    "hf3_panel_black",
+    "hf3_pylon_offwhite",
+    "hf3_fin_red",
+    "hf3_decal_side_text",
+    "hf3_decal_s001",
+    "hf3_roundel_blue",
+]
 
 
 class Mesh:
@@ -73,27 +92,74 @@ class Mesh:
                 fp.write("f " + " ".join(terms) + "\n")
 
     def write_game_obj(self, path: Path) -> None:
-        """Write Sea Power's +Z-forward, 1:100-scale OBJ grouped by material."""
-        material_order = list(dict.fromkeys(face["mat"] for face in self.faces))
+        """Write single-mesh launch/cruise models with atlas UVs for Sea Power."""
+        unknown_materials = {face["mat"] for face in self.faces} - set(GAME_MATERIAL_ORDER)
+        if unknown_materials:
+            raise ValueError(f"Missing atlas slots for: {sorted(unknown_materials)}")
+
+        atlas_uvs: list[tuple[float, float]] = []
+        flat_uv: dict[str, int] = {}
+        mapped_uv: dict[tuple[str, int], int] = {}
+
+        def add_uv(u: float, v: float) -> int:
+            atlas_uvs.append((u, v))
+            return len(atlas_uvs)
+
+        for index, material in enumerate(GAME_MATERIAL_ORDER):
+            col = index % GAME_ATLAS_GRID
+            row = index // GAME_ATLAS_GRID
+            center_u = (col + 0.5) / GAME_ATLAS_GRID
+            center_v = (GAME_ATLAS_GRID - row - 0.5) / GAME_ATLAS_GRID
+            flat_uv[material] = add_uv(center_u, center_v)
+
+            used_texcoords = {
+                texcoord
+                for face in self.faces
+                if face["mat"] == material and face["vt"]
+                for texcoord in face["vt"]
+            }
+            for texcoord in sorted(used_texcoords):
+                source_u, source_v = self.texcoords[texcoord - 1]
+                mapped_u = (
+                    col + GAME_ATLAS_PADDING + source_u * (1.0 - 2.0 * GAME_ATLAS_PADDING)
+                ) / GAME_ATLAS_GRID
+                mapped_v = (
+                    GAME_ATLAS_GRID
+                    - row
+                    - 1
+                    + GAME_ATLAS_PADDING
+                    + source_v * (1.0 - 2.0 * GAME_ATLAS_PADDING)
+                ) / GAME_ATLAS_GRID
+                mapped_uv[(material, texcoord)] = add_uv(mapped_u, mapped_v)
+
         with path.open("w", encoding="utf-8", newline="\n") as fp:
             fp.write("# ROCN Hsiung Feng III Sea Power game OBJ\n")
             fp.write("# Scale: 1 model unit = 100 m. Axes: +X starboard, +Y up, +Z nose.\n")
+            fp.write("# Launch mesh includes strap-on boosters; cruise mesh omits booster groups.\n")
             for forward, starboard, up in self.vertices:
                 fp.write(f"v {starboard * 0.01:.8f} {up * 0.01:.8f} {forward * 0.01:.8f}\n")
-            for u, v in self.texcoords:
+            for u, v in atlas_uvs:
                 fp.write(f"vt {u:.6f} {v:.6f}\n")
 
-            for material in material_order:
-                fp.write(f"\no {material}\ng {material}\n")
+            for mesh_name, include_boosters in (
+                ("rocn_hf-3_launch", True),
+                ("rocn_hf-3_cruise", False),
+            ):
+                fp.write(f"\no {mesh_name}\ng {mesh_name}\nusemtl hf3_atlas\n")
                 current_smooth = None
-                for face in (item for item in self.faces if item["mat"] == material):
+                for face in self.faces:
+                    if not include_boosters and "booster" in face["group"].lower():
+                        continue
                     if face["smooth"] != current_smooth:
                         fp.write("s 1\n" if face["smooth"] else "s off\n")
                         current_smooth = face["smooth"]
                     if face["vt"]:
-                        terms = [f"{vi}/{ti}" for vi, ti in zip(face["v"], face["vt"])]
+                        terms = [
+                            f"{vertex}/{mapped_uv[(face['mat'], texcoord)]}"
+                            for vertex, texcoord in zip(face["v"], face["vt"])
+                        ]
                     else:
-                        terms = [str(vi) for vi in face["v"]]
+                        terms = [f"{vertex}/{flat_uv[face['mat']]}" for vertex in face["v"]]
                     fp.write("f " + " ".join(terms) + "\n")
 
 
