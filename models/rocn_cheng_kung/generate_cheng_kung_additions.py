@@ -178,8 +178,9 @@ def build_platform(side: int) -> ObjMesh:
 
 def launcher_basis(side: int):
     angle = math.radians(35.0)
-    launch_axis = (side * math.cos(angle), math.sin(angle), 0.0)
-    stack_axis = (-side * math.sin(angle), math.cos(angle), 0.0)
+    # Cheng Kung racks rise toward the centreline: outboard end low, inboard end high.
+    launch_axis = (-side * math.cos(angle), math.sin(angle), 0.0)
+    stack_axis = (side * math.sin(angle), math.cos(angle), 0.0)
     lateral_axis = (0.0, 0.0, 1.0)
     return launch_axis, stack_axis, lateral_axis
 
@@ -284,7 +285,7 @@ def add_launcher_canister(
 
 
 def build_launcher(side: int) -> tuple[ObjMesh, dict[str, list[tuple[float, float, float]]]]:
-    """Build a 2x2 HF-2/HF-3 mixed launcher aimed to the selected broadside."""
+    """Build a centreline-rising 2x2 launcher for the selected side of the ship."""
     mesh = ObjMesh()
     launch_axis, stack_axis, lateral_axis = launcher_basis(side)
     # Mirror the columns so each rack reads HF-2 left / HF-3 right from outboard.
