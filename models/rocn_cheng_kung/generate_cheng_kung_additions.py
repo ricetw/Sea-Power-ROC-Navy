@@ -287,8 +287,9 @@ def build_launcher(side: int) -> tuple[ObjMesh, dict[str, list[tuple[float, floa
     """Build a 2x2 HF-2/HF-3 mixed launcher aimed to the selected broadside."""
     mesh = ObjMesh()
     launch_axis, stack_axis, lateral_axis = launcher_basis(side)
-    hf2_z = -0.00555
-    hf3_z = 0.00555
+    # Mirror the columns so each rack reads HF-2 left / HF-3 right from outboard.
+    hf2_z = side * 0.00555
+    hf3_z = -side * 0.00555
     launch_points = {"hf2": [], "hf3": []}
 
     for row in (0, 1):
