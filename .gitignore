@@ -5,6 +5,21 @@
 /scratch/
 /.agents/
 /source
+/output/
+
+# Blender automatic backups (keep editable .blend source files)
+*.blend[0-9]*
+
+# Local-only research photos and converted/resized copies
+/reference/launcher_study_v1/kunming_2014.jpg
+/reference/launcher_study_v1/kunming_2014.png
+/reference/launcher_study_v1/kunming_2014_input.png
+
+# Photo attribution/license verification is still pending
+/reference/launcher_study_v1/trailer_2015.jpg
+/reference/launcher_study_v1/trailer_preview.jpg
+/reference/launcher_study_v1/trailer_preview.png
+/reference/launcher_study_v1/trailer_preview_input.png
 
 # Local game/user copies
 /Sea Power_Data/
